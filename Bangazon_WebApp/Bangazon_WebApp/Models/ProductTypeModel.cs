@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+// Author: Ryan McPherson
+// Purpose: Creates table and connections for the ProductType table
+
 namespace Bangazon_WebApp.Models
 {
     public class ProductType
