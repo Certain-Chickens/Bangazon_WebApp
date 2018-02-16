@@ -11,10 +11,9 @@ namespace Bangazon_WebApp.Models
         public int Id { get; set; }
 
         [Required]
-        public int ApplicationUserId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
         public string PaymentName { get; set; }
         public string AccountNumber { get; set; }
 
+        ICollection<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
