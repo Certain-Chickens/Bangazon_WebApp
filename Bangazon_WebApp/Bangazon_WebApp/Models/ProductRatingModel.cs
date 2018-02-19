@@ -4,21 +4,21 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-// Author: Robbie Stock
-// Purpose: Creating and maintaing the Payment Type table.
+// Author: Ryan McPherson
+// Purpose: Creating and maintaing the Product Rating table.
 
 namespace Bangazon_WebApp.Models
 {
-    public class PaymentTypeModel
+    public class ProductRatingModel
     {
+
         [Key]
         public int Id { get; set; }
 
         [Required]
         public ApplicationUser ApplicationUser { get; set; }
-        public string PaymentName { get; set; }
-        public string AccountNumber { get; set; }
+        public ProductModel Products { get; set; }
+        public double Rating { get; set; }
 
-        public ICollection<OrderModel> Orders;
     }
 }
