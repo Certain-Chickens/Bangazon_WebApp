@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bangazon_WebApp.Models
 {
-    public class ProductModel
+    public class Product
     {
         [Key]
         public int Id { get; set; }
@@ -43,17 +43,17 @@ namespace Bangazon_WebApp.Models
         
         // Foreign Keys
 
-        public ProductTypeModel ProductType { get; set; }
+        public ProductType ProductType { get; set; }
 
-        public PhotosModel Photo { get; set; }
+        public Photos Photo { get; set; }
 
-        public RecommendationsModel Recommendations { get; set; }
+        //public Recommendations Recommendations { get; set; }
 
-        public LikesModel Likes { get; set; }
+        public Likes Likes { get; set; }
 
-        public ProductRatingModel ProductRating { get; set; }
+        public ProductRating ProductRating { get; set; }
 
-        public virtual ICollection<OrderProductModel> OrderProduct { get; set; }
+        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
 
     }
 }
