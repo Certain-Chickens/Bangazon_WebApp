@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bangazon_WebApp.Models
 {
-    public class ProductType
+    public class ProductTypeModel
     {
         [Key]
         public int Id { get; set; }

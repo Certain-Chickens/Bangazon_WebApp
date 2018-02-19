@@ -42,7 +42,7 @@ namespace Bangazon_WebApp.Models
 
         public virtual ICollection<OrderModel> Orders { get; set; }
 
-        public virtual ICollection<ProductsModel> Products { get; set; }
+        public virtual ICollection<ProductModel> Products { get; set; }
 
         public virtual ICollection<RecommendationsModel> Recommendations { get; set; }
 
