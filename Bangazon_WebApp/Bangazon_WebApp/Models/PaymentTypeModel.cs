@@ -16,6 +16,6 @@ namespace Bangazon_WebApp.Models
         public string PaymentName { get; set; }
         public string AccountNumber { get; set; }
 
-        public ICollection<Order> Orders;
+        public ICollection<OrderModel> Orders;
     }
 }
