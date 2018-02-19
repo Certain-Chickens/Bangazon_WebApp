@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bangazon_WebApp.Models
 {
-    public class Recommendations
+    public class RecommendationsModel
     {
 
         [Key]
