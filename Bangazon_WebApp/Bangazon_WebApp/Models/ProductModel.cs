@@ -36,9 +36,12 @@ namespace Bangazon_WebApp.Models
         [Required]
         public ApplicationUser User { get; set; }
 
-        [Required]
-        [Display(Name = "Product Category")]
-        public int ProductTypeId { get; set; }
+        public int LocalDelivery { get; set; }
+
+        public string DeliveryCity { get; set; }
+
+        
+        // Foreign Keys
 
         public ProductTypeModel ProductType { get; set; }
 
