@@ -18,7 +18,6 @@ namespace Bangazon_WebApp.Models
         public ApplicationUser User { get; set; }
 
         [Required]
-        public int PaymentTypeId { get; set; }
         public PaymentTypeModel PaymentType { get; set; }
 
         [Required]
@@ -30,5 +29,6 @@ namespace Bangazon_WebApp.Models
         [DataType(DataType.DateTime)]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime? DateTimeClosed;
+
     }
 }
