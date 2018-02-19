@@ -40,7 +40,7 @@ namespace Bangazon_WebApp.Models
 
         public virtual ICollection<PaymentTypeModel> PaymentTypes { get; set; }
 
-        public virtual ICollection<OrdersModel> Orders { get; set; }
+        public virtual ICollection<OrderModel> Orders { get; set; }
 
         public virtual ICollection<ProductsModel> Products { get; set; }
 
