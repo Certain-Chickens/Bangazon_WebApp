@@ -40,18 +40,18 @@ namespace Bangazon_WebApp.Models
 
         public string DeliveryCity { get; set; }
 
-        
+        public byte[] Photo { get; set; }
+
+
         // Foreign Keys
 
         public ProductType ProductType { get; set; }
 
-        public Photos Photo { get; set; }
-
         //public Recommendations Recommendations { get; set; }
 
-        public Likes Likes { get; set; }
+        public virtual ICollection<Likes> Likes { get; set; }
 
-        public ProductRating ProductRating { get; set; }
+        public virtual ICollection<ProductRating> ProductRating { get; set; }
 
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
 

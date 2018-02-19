@@ -22,12 +22,12 @@ namespace Bangazon_WebApp.Models
         public PaymentType PaymentType { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime DateTimeCreated = DateTime.Now;
 
         [Required]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime? DateTimeClosed;
 

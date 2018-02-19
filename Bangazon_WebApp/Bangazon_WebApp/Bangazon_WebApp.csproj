@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-Bangazon_WebApp-5FF72696-C5D5-41FD-A958-9A31D458AD50</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20180219203808_initial.cs" />
+    <Compile Remove="Data\Migrations\20180219203808_initial.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />

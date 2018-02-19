@@ -21,7 +21,6 @@ namespace Bangazon_WebApp.Data
         public DbSet<Order> Order {get; set;}
         public DbSet<OrderProduct> OrderProduct {get; set;}
         public DbSet<PaymentType> PaymentType {get; set;}
-        public DbSet<Photos> Photos {get; set;}
         public DbSet<Product> Product {get; set;}
         public DbSet<ProductRating> ProductRating {get; set;}
         public DbSet<ProductType> ProductType {get; set;}
@@ -36,15 +35,15 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
             modelBuilder.Entity<Product>()
                 .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+                .HasDefaultValueSql("GETDATE()");
 
-            modelBuilder.Entity<Order>()
-              .Property(b => b.DateTimeCreated)
-              .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+            //modelBuilder.Entity<Order>()
+              //.Property(c => c.DateTimeCreated)
+              //.HasDefaultValueSql("GETDATE()");
 
-            modelBuilder.Entity<Order>()
-              .Property(b => b.DateTimeClosed)
-              .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+            //modelBuilder.Entity<Order>()
+              //.Property(d => d.DateTimeClosed)
+              //.HasDefaultValueSql("GETDATE()");
         }
     }
 }
