@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Author: Erin Agobert
+//Purpose: This model creates the order table
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
