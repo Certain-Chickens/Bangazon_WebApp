@@ -25,7 +25,7 @@ namespace Bangazon_WebApp.Data
         public DbSet<Product> Product {get; set;}
         public DbSet<ProductRating> ProductRating {get; set;}
         public DbSet<ProductType> ProductType {get; set;}
-        public DbSet<Recommendations> Recommendations {get; set;}
+        //public DbSet<Recommendations> Recommendations {get; set;}
 
 protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
