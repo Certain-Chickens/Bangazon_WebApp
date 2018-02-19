@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bangazon_WebApp.Models
 {
-    public class ProductTypeModel
+    public class ProductType
     {
         [Key]
         public int Id { get; set; }
@@ -19,7 +19,7 @@ namespace Bangazon_WebApp.Models
         [Display(Name = "Category")]
         public string Name { get; set; }
 
-        public virtual ICollection<ProductModel> Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
     }
 }

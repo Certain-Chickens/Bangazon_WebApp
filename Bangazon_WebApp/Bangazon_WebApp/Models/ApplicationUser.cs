@@ -38,17 +38,17 @@ namespace Bangazon_WebApp.Models
 
         //Foreign Key relationships
 
-        public virtual ICollection<PaymentTypeModel> PaymentTypes { get; set; }
+        public virtual ICollection<PaymentType> PaymentTypes { get; set; }
 
-        public virtual ICollection<OrderModel> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
-        public virtual ICollection<ProductModel> Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
-        public virtual ICollection<RecommendationsModel> Recommendations { get; set; }
+        //public virtual ICollection<Recommendations> Recommendations { get; set; }
 
-        public virtual ICollection<LikesModel> Likes { get; set; }
+        public virtual ICollection<Likes> Likes { get; set; }
 
-        public virtual ICollection<ProductRatingModel> ProductRatings { get; set; }
+        public virtual ICollection<ProductRating> ProductRatings { get; set; }
 
 
         

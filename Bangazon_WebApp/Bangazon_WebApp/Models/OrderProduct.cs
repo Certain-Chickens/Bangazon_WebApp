@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace Bangazon_WebApp.Models
 {
-    public class OrderProductModel
+    public class OrderProduct
     {
         [Key]
         public int Id { get; set; }
 
         [Required]
-        public ProductModel Product { get; set; }
+        public Product Product { get; set; }
 
         [Required] 
-        public OrderModel Order { get; set; }
+        public Order Order { get; set; }
     }
 }

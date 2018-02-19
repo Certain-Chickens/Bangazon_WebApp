@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Bangazon_WebApp.Models
 {
-    public class OrderModel
+    public class Order
     {
         [Key]
         public int Id { get; set; }
@@ -19,7 +19,7 @@ namespace Bangazon_WebApp.Models
         public ApplicationUser User { get; set; }
 
         [Required]
-        public PaymentTypeModel PaymentType { get; set; }
+        public PaymentType PaymentType { get; set; }
 
         [Required]
         [DataType(DataType.DateTime)]

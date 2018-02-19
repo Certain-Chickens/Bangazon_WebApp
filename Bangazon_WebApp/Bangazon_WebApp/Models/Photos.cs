@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bangazon_WebApp.Models
 {
-    public class PhotosModel
+    public class Photos
     {
         [Key]
         public int Id { get; set; }
@@ -18,6 +18,6 @@ namespace Bangazon_WebApp.Models
 
         //forign key relationship
 
-        public ProductModel Products { get; set; }
+        public Product Products { get; set; }
     }
 }
