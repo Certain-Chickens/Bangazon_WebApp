@@ -23,5 +23,45 @@ namespace Bangazon_WebApp.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(55, ErrorMessage = "The {0} must be no longer than {1} characters long.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(55, ErrorMessage = "The {0} must be no longer than {1} characters long.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+
+        [Required]
+        [StringLength(55, ErrorMessage = "The {0} must be no longer than {1} characters long.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Street Address")]
+        public string StreetAddress { get; set; }
+
+        [Required]
+        [StringLength(55, ErrorMessage = "The {0} must be no longer than {1} characters long.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        [StringLength(2, ErrorMessage = "The {0} must be no longer than {1} characters long.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Required]
+        [StringLength(6, ErrorMessage = "The {0} must be no longer than {1} characters long.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Zip Code")]
+        public string ZipCode { get; set; }
+
+
+
     }
 }
