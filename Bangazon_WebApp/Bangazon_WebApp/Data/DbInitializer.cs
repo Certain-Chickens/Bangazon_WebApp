@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Bangazon_WebApp.Models;
+using Bangazon_WebApp.Data;
 
 namespace Bangazon_WebApp.Data
 {
@@ -34,17 +35,17 @@ namespace Bangazon_WebApp.Data
                 {
                 ApplicationUser user1 = userManager.FindByNameAsync("mmcpher2@gmail.com").Result;
 
-                /*int productCatergoryId = (from pt in context.ProductType
+                int productCatergoryId = (from pt in context.ProductType
                                           where pt.Name.Equals("Electronics")
-                                          select pt.Id).Single(); */
+                                          select pt.Id).Single();
 
 
                 context.Product.Add(new Product {
-                    //Id = 1,
+                
                     Quantity = 1,
                     DateCreated = DateTime.Now,
                     Description = "Gaming System",
-                    ProductType = context.ProductType.Single(p => p.Name == "Electronics"),
+                    ProductType = productCatergoryId,
                     Title = "XBox One",
                     Price = 123.34,
                     User = user1,
@@ -55,11 +56,11 @@ namespace Bangazon_WebApp.Data
                 });
 
                 context.Product.Add(new Product {
-                    //Id = 2
+               
                     Quantity = 3,
                     DateCreated = DateTime.Now,
                     Description = "Microwave",
-                    ProductType = context.ProductType.Single(p => p.Name == "Electronics"),
+                    ProductType = productCatergoryId,
                     Title = "Nice Microwave",
                     Price = 20.00,
                     User = user1,
@@ -70,7 +71,7 @@ namespace Bangazon_WebApp.Data
 
                 context.Product.Add(new Product
                 {
-                    // Id = 3
+                  
                     Quantity = 2,
                     DateCreated = DateTime.Now,
                     Description = "Large picture frame.",
@@ -83,6 +84,7 @@ namespace Bangazon_WebApp.Data
                     Photo = null
                 });
 
+                context.SaveChanges();
                 
             }
         }
