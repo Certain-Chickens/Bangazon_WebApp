@@ -9,6 +9,9 @@ using Bangazon_WebApp.Data;
 using Bangazon_WebApp.Models;
 using Microsoft.AspNetCore.Identity;
 
+// Author: Ryan McPherson
+// Purpose: Creates and maintains the functionality for the user to manager their Payment Types.
+
 namespace Bangazon_WebApp.Controllers
 {
     public class PaymentTypesController : Controller
