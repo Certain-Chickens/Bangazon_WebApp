@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Author:  Erin Agobert and Ryan McPherson
+//Purpose:  To seed the database
+
+using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
