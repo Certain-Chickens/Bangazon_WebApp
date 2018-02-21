@@ -8,19 +8,23 @@ using Microsoft.EntityFrameworkCore;
 using Bangazon_WebApp.Data;
 using Bangazon_WebApp.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace Bangazon_WebApp.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        //get the usermanager
         private readonly UserManager<ApplicationUser> _userManager;
 
+        //inject UserManager
         public ProductsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            //set usermanager
             _userManager = userManager;
-        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -44,6 +48,9 @@ namespace Bangazon_WebApp.Controllers
 
             return View(product);
         }
+
+        // This task retrieves the currently authenticated user
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Products
         public async Task<IActionResult> Index()
@@ -72,6 +79,8 @@ namespace Bangazon_WebApp.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            //get current user
+            
             return View();
         }
 
@@ -79,14 +88,21 @@ namespace Bangazon_WebApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Quantity,DateCreated,Description,Title,Price,LocalDelivery,DeliveryCity,Photo")] Product product)
+        public async Task<IActionResult> Create(Product product)
         {
+            ModelState.Remove("User");
+        
+
             if (ModelState.IsValid)
             {
+                //grab the current user
+                product.User = await _userManager.GetUserAsync(HttpContext.User);
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", new { Id = product.Id });
             }
             return View(product);
         }
