@@ -13,7 +13,7 @@ namespace Bangazon_WebApp.Models
         
 
         [Required]
-        [Display(Name = "Fist Name")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required]
@@ -21,6 +21,7 @@ namespace Bangazon_WebApp.Models
         public string LastName { get; set; }
 
         [Required]
+        [Display(Name = "Street Address")]
         public string Street { get; set; }
 
         [Required]
