@@ -16,7 +16,11 @@ namespace Bangazon_WebApp.Models
 
         [Required]
         public ApplicationUser ApplicationUser { get; set; }
+
+        [Display(Name ="Payment Name")]
         public string PaymentName { get; set; }
+
+        [Display(Name = "Account Number")]
         public string AccountNumber { get; set; }
 
         public ICollection<Order> Orders;
