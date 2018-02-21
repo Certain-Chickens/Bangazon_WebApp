@@ -25,7 +25,7 @@ namespace Bangazon_WebApp.Controllers
             _context = context;
             //set usermanager
             _userManager = userManager;
-
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         // SearchProducts: Products
