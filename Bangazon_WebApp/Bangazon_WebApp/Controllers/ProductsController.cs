@@ -7,16 +7,42 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bangazon_WebApp.Data;
 using Bangazon_WebApp.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Bangazon_WebApp.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // SearchProducts: Products
+        public async Task<IActionResult> searchProducts(string search)
+        {
+            if (search == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Product
+                .Include(p => p.ProductType)
+                .Where(m => m.Title.Contains(search) || m.DeliveryCity.Contains(search))
+                .ToListAsync();
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
         }
 
         // GET: Products
