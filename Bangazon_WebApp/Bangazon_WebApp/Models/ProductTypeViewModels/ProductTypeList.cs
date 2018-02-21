@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bangazon_WebApp.Models.ProductTypeViewModels
 {
-    public class ProductTypeListView
+    public class ProductTypeList
     {
         public ProductType ProductType { get; set; }
         public List<Product> Products { get; set; }

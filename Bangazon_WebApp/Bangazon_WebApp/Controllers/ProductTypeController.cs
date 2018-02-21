@@ -20,9 +20,21 @@ namespace Bangazon_WebApp.Controllers
         }
 
         // GET: ProductTypes
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await _context.ProductType.ToListAsync());
+        }
+
+        //Author:  Erin Agobert
+        //Purpose:  Shows the list of products based on category name
+
+        // GET: ProductTypes/Name/ProductList
+        [HttpGet]
+        public async Task<IActionResult> CreateProductTypeList(string name)
+        {
+            var productTypeList = await _context.ProductType.Where(m => m.Name == name).ToListAsync();
+            return View(productTypeList);
         }
 
         // GET: ProductTypes/Details/5
