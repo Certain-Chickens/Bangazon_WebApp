@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bangazon_WebApp.Data;
 using Bangazon_WebApp.Models;
+using Bangazon_WebApp.Models.ProductTypeViewModels;
 
 namespace Bangazon_WebApp.Controllers
 {
@@ -29,12 +27,31 @@ namespace Bangazon_WebApp.Controllers
         //Author:  Erin Agobert
         //Purpose:  Shows the list of products based on category name
 
-        // GET: ProductTypes/Name/ProductList
-        [HttpGet]
-        public async Task<IActionResult> CreateProductTypeList(string name)
+        // GET: ProductTypes/Name/ProductListByCategory
+        public async Task<IActionResult> ProductListByCategory ([FromRoute]int? id)
         {
-            var productTypeList = await _context.ProductType.Where(m => m.Name == name).ToListAsync();
-            return View(productTypeList);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            //Create an instance of the view model being used
+            ProductTypeListModel model = new ProductTypeListModel();
+
+
+            var productType = await _context.ProductType
+                .Where(t => t.Id == id)
+                .SingleOrDefaultAsync();
+
+            if (productType == null)
+            {
+                return NotFound();
+            }
+
+            model.Products = await (from t in _context.Product
+                                    where t.ProductType.Id == id
+                                    select t).ToListAsync();
+            return View(model);
         }
 
         // GET: ProductTypes/Details/5

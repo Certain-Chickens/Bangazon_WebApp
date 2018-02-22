@@ -26,7 +26,7 @@
     {
         <tr>
             <td>
-                <a href="#"> @Html.DisplayFor(modelItem => item.Name) </a>
+                <a asp-action="ProductListByCategory" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Name) </a>
             </td>
             
         </tr>

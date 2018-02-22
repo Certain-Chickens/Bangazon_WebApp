@@ -1,15 +1,13 @@
 ﻿//Author:  Erin Agobert
-//Purpose:  
-using System;
+//Purpose:  A model of the list view by product type
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Bangazon_WebApp.Models.ProductTypeViewModels
 {
-    public class ProductTypeList
+    public class ProductTypeListModel
     {
         public ProductType ProductType { get; set; }
-        public List<Product> Products { get; set; }
+        public IEnumerable<Product> Products { get; set; }
     }
 }
