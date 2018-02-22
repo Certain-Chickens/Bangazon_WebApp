@@ -1,10 +1,12 @@
 ﻿@model Bangazon_WebApp.Models.ProductViewModels.UserProductViewModel
-    @{
-        ViewData["Title"] = "Your Product Listings";
-    }
+@{
+    ViewData["Title"] = "Your Product Listings";
+}
 
-    <h2 class="top-buffer">@ViewData["Title"]</h2>
+<h2 class="top-buffer">@ViewData["Title"]</h2>
 
+@if (Model.Products.Count() > 0)
+{
     <table class="table table-striped">
         <thead>
             <tr>
@@ -18,21 +20,30 @@
 
         @foreach (var product in Model.Products)
         {
-        <tr>
-            <td>
-                <a asp-action="Detail" asp-route-id="@product.Id">
-                    @Html.DisplayFor(modelItem => product.Title)
-                </a>
-            </td>
-            <td>@Html.DisplayFor(modelItem => product.Description)</td>
-            <td>@Html.DisplayFor(modelItem => product.DateCreated)</td>
-            <td>@Html.DisplayFor(modelItem => product.Price)</td>
-            <td>@Html.DisplayFor(modelItem => product.Quantity)</td>
-            <td>
-                <a asp-action="Delete" asp-route-id="@product.Id">Delete</a>
-            </td>
+            <tr>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@product.Id">
+                        @Html.DisplayFor(modelItem => product.Title)
+                    </a>
+                </td>
+                <td>@Html.DisplayFor(modelItem => product.Description)</td>
+                <td>@Html.DisplayFor(modelItem => product.DateCreated)</td>
+                <td>@Html.DisplayFor(modelItem => product.Price)</td>
+                <td>@Html.DisplayFor(modelItem => product.Quantity)</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                </td>
 
-        </tr>
+            </tr>
         }
 
+
     </table>
+
+}
+else
+{
+
+    <h2> Sorry you don't have any Products yet </h2>
+}
+

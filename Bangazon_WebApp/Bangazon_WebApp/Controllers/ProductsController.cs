@@ -69,7 +69,7 @@ namespace Bangazon_WebApp.Controllers
             var user = await _userManager.GetUserAsync(HttpContext.User);
 
             //grab products equal to current user ID
-            //model.Products = await _context.Product.ToListAsync();
+           
             model.Products = await (_context.Product.Where(p => p.User == user).ToListAsync());
 
 
