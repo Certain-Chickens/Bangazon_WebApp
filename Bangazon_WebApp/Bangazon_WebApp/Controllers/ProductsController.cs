@@ -202,7 +202,7 @@ namespace Bangazon_WebApp.Controllers
             var product = await _context.Product.SingleOrDefaultAsync(m => m.Id == id);
             _context.Product.Remove(product);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(MyProducts));
         }
 
         private bool ProductExists(int id)
