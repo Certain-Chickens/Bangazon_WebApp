@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bangazon_WebApp.Data;
 using Bangazon_WebApp.Models;
+using Bangazon_WebApp.Models.ProductViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 
@@ -56,6 +57,23 @@ namespace Bangazon_WebApp.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Product.ToListAsync());
+        }
+
+        // GET: Products/MyProducts
+        public async Task<IActionResult> MyProducts()
+        {
+            // Create new instance of the view model
+            UserProductViewModel model = new UserProductViewModel();
+
+            //grab the current user 
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+
+            //grab products equal to current user ID
+            //model.Products = await _context.Product.ToListAsync();
+            model.Products = await (_context.Product.Where(p => p.User == user).ToListAsync());
+
+
+            return View(model);
         }
 
         // GET: Products/Details/5

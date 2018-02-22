@@ -1,0 +1,39 @@
+﻿@model Bangazon_WebApp.Models.ProductViewModels.UserProductViewModel
+    @{
+        ViewData["Title"] = "Product Listing";
+    }
+
+    <h2 class="top-buffer">@ViewData["Title"]</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Posted</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+
+        @foreach (var product in Model.Products)
+        {
+        <tr>
+            <td>
+                <a asp-action="Detail" asp-route-id="@product.Id">
+                    @Html.DisplayFor(modelItem => product.Title)
+                </a>
+            </td>
+            <td>@Html.DisplayFor(modelItem => product.Description)</td>
+            <td>@Html.DisplayFor(modelItem => product.DateCreated)</td>
+            <td>@Html.DisplayFor(modelItem => product.Price)</td>
+            <td>@Html.DisplayFor(modelItem => product.Quantity)</td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+            </td>
+
+        </tr>
+        }
+
+    </table>
+}
