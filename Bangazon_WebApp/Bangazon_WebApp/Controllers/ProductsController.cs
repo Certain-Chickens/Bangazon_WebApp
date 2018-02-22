@@ -60,6 +60,7 @@ namespace Bangazon_WebApp.Controllers
         }
 
         // GET: Products/MyProducts
+        //This method is used to display products only for the current logged in user
         public async Task<IActionResult> MyProducts()
         {
             // Create new instance of the view model

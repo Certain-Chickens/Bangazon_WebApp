@@ -3,7 +3,7 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-
+    @*Author: Ray Purpose: This tempate renders the My Products affordance in the nav bar when a user logs in*@
 @if (SignInManager.IsSignedIn(User))
 {
 <ul class="nav navbar-nav">

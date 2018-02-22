@@ -1,10 +1,11 @@
 ﻿@model Bangazon_WebApp.Models.ProductViewModels.UserProductViewModel
+@*Author/Ray  Purpose/ This template is rendered when the user clicks on the my products affordance in the nav bar and shows them thier products*@
 @{
     ViewData["Title"] = "Your Product Listings";
 }
 
 <h2 class="top-buffer">@ViewData["Title"]</h2>
-
+@*Check to see if Model.Products has products in it*@
 @if (Model.Products.Count() > 0)
 {
     <table class="table table-striped">
@@ -41,6 +42,7 @@
     </table>
 
 }
+@*If user has no products*@
 else
 {
 
