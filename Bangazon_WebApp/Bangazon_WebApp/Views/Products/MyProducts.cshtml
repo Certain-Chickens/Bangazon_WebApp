@@ -1,0 +1,51 @@
+﻿@model Bangazon_WebApp.Models.ProductViewModels.UserProductViewModel
+@*Author/Ray  Purpose/ This template is rendered when the user clicks on the my products affordance in the nav bar and shows them thier products*@
+@{
+    ViewData["Title"] = "Your Product Listings";
+}
+
+<h2 class="top-buffer">@ViewData["Title"]</h2>
+@*Check to see if Model.Products has products in it*@
+@if (Model.Products.Count() > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Posted</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@product.Id">
+                        @Html.DisplayFor(modelItem => product.Title)
+                    </a>
+                </td>
+                <td>@Html.DisplayFor(modelItem => product.Description)</td>
+                <td>@Html.DisplayFor(modelItem => product.DateCreated)</td>
+                <td>@Html.DisplayFor(modelItem => product.Price)</td>
+                <td>@Html.DisplayFor(modelItem => product.Quantity)</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                </td>
+
+            </tr>
+        }
+
+
+    </table>
+
+}
+@*If user has no products*@
+else
+{
+
+    <h2> Sorry you don't have any Products yet </h2>
+}
+

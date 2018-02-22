@@ -3,11 +3,11 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-    @*Author: Ray  Purpose: This template renderes when the user is authenticated and shows the Sell a product Affordance in the nav bar*@
+    @*Author: Ray Purpose: This tempate renders the My Products affordance in the nav bar when a user logs in*@
 @if (SignInManager.IsSignedIn(User))
 {
 <ul class="nav navbar-nav">
-    <li><a asp-area="" asp-controller="Products" asp-action="Create">Sell A Product</a></li>
+    <li><a asp-area="" asp-controller="Products" asp-action="MyProducts">My Products</a></li>
 </ul>
 }
 else
