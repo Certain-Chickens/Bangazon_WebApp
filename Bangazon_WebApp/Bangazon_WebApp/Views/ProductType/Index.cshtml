@@ -1,5 +1,7 @@
-﻿//Author: Erin Agobert
-//Purpose: View displays list of existing product categories with hyperlinks to related products list
+﻿@*
+    Author: Erin Agobert
+    Purpose: View displays list of existing product categories with hyperlinks to related products list
+*@
 
 @model IEnumerable<Bangazon_WebApp.Models.ProductType>
 
@@ -15,21 +17,21 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-            @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                <a asp-action="ProductListByCategory" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Name) </a>
-            </td>
-            
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="ProductListByCategory" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Name) </a>
+                </td>
+
+            </tr>
+        }
     </tbody>
 </table>
