@@ -1,0 +1,25 @@
+﻿@*
+    Author:  Erin Agobert
+    Purpose: Create product list view created upon click of hyperlink from product type index view
+*@
+
+@model Bangazon_WebApp.Models.ProductTypeViewModels.ProductTypeListModel;
+
+@{
+    ViewData["Title"] = "Products by Category";
+}
+
+<h2 class="top-buffer">@ViewData["Title"]</h2>
+
+@foreach (var product in Model.Products)
+{
+    <div class="row">
+        <div class="col-md-3">
+            <a asp-controller="Products" asp-action="Detail" asp-route-id="@product.Title">
+                @Html.DisplayFor(modelItem => product.Title)
+            </a>
+        </div>
+        <div class="col-md-7">@product.Description</div>
+        <div class="col-md-2">@Html.DisplayFor(i => product.Price)</div>
+    </div>
+}
